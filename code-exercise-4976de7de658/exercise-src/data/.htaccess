@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^data.json$ index.php

@@ -17,8 +17,6 @@ function populateLayers(state) {
 
   const defConfig = state.default_configuration;
 
-  console.log(defConfig);
-
   //take each layer and create markup for every item in it.
   layers.forEach((layer) => {
     const layerNr = layer.dataset.layer;
@@ -41,7 +39,6 @@ function populateLayers(state) {
  * @returns template literal containing markup for every item
  */
 function itemMarkup(item, layerNr, i, defConfig) {
-  console.log(defConfig);
   if (!item) return;
   return `
     <p class='item btn ${i === defConfig ? "active" : ""}' 
@@ -100,13 +97,31 @@ function handleItemClick(event) {
 }
 
 function drawCanvas() {
+  const layer0 = document.querySelector(".img-layer0");
+  const layer1 = document.querySelector(".img-layer1");
+  const layer2 = document.querySelector(".img-layer2");
+
   const ctx = canvas.getContext("2d");
 
-  const layer0 = document.querySelector("img-layer0");
-  const layer1 = document.querySelector("img-layer1");
-  const layer2 = document.querySelector("img-layer2");
+  console.log(layer0.clientHeight);
+  ctx.drawImage(layer0, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(layer1, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(layer2, 0, 0, canvas.width, canvas.height);
+}
 
-  ctx.drawImage(layer0, 0, 0);
+function downloadCanvas() {
+  //IE/Edge Support (PNG only)
+  if (window.navigator.msSaveBlob) {
+    window.navigator.msSaveBlob(canvas.msToBlob(), "design.png");
+  } else {
+    const a = document.createElement("a");
+
+    document.body.appendChild(a);
+    a.href = canvas.toDataURL();
+    a.download = "design.png";
+    a.click();
+    document.body.removeChild(a);
+  }
 }
 
 /**
@@ -124,9 +139,9 @@ layers.forEach((layer) => {
   layer.addEventListener("click", handleItemClick);
 });
 
-function saveDesign(e) {
-  console.log(e.target);
-  document.createElement("canvas");
+function saveDesign() {
+  drawCanvas();
+  downloadCanvas();
 }
 
 // newItemsBtn.addEventListener("click", handleNewItemsBtnClick);

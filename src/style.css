@@ -1,0 +1,124 @@
+/* 1) GLOBAL STYLES */
+/* 2) HEADER STYLES */
+/* 3) LAYERS STYLES */
+/* 4) DESIGN STYLES */
+/* 5) NEW DESIGNS TYLES */
+
+/* 1) GLOBAL STYLES */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  width: 90%;
+  margin: 0 auto 3rem;
+}
+
+header,
+main {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+h1,
+h2,
+h3 {
+  margin: 1rem;
+}
+
+/* 2) HEADER STYLES */
+header {
+  border: 1px solid red;
+  padding-bottom: 1rem;
+}
+
+.design-selection-container {
+  border: 1px solid red;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* 3) LAYERS STYLES */
+.layer-container {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  margin: 1rem 2%;
+  white-space: nowrap;
+}
+
+.btn {
+  padding: 0.25rem 0rem;
+  margin-bottom: 0.5rem;
+  background-color: rgb(160, 221, 68);
+  border-radius: 2px;
+  box-shadow: 5px 5px 5px;
+  cursor: pointer;
+  transition: transform 250ms ease-out;
+  border: none;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn:hover {
+  z-index: 2;
+  transform: scale(1.05);
+}
+
+.active {
+  background-color: rgb(231, 77, 77);
+  font-weight: 900;
+}
+
+/* 4) DESIGN STYLES */
+
+.desigin-display-container {
+  border: 1px solid yellow;
+  width: 100%;
+  height: 70vh;
+  position: relative;
+}
+.img-container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+
+  position: absolute;
+}
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* 5) NEW DESIGNS TYLES */
+.new-items-btn {
+  margin: 0 auto;
+  width: 20%;
+  font-weight: 900;
+}
+@media screen and (max-width: 1100px) {
+  html {
+    font-size: 14px;
+  }
+
+  .layer-container {
+    width: 30%;
+    margin: 1rem 1%;
+    white-space: normal;
+  }
+}

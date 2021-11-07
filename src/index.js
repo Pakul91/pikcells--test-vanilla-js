@@ -2,7 +2,7 @@ import { fetchData, state } from "./state";
 import "./style.css";
 
 const layers = document.querySelectorAll(".layer-container");
-const newItemsBtn = document.querySelector(".new-items");
+const newItemsBtn = document.querySelector(".new-items-btn");
 const saveDesignBtn = document.querySelector(".save-design-btn");
 const canvas = document.querySelector("canvas");
 
@@ -35,7 +35,8 @@ function populateLayers(state) {
  *
  * @param {{}} item object containing data for each item
  * @param {number} layerNr defines which layer the item is assigned to
- * @param {*} i index nr of the item in the array.
+ * @param {number} i index nr of the item in the array.
+ * @param {number} defConfig index of the item to be active in given layer
  * @returns template literal containing markup for every item
  */
 function itemMarkup(item, layerNr, i, defConfig) {
@@ -96,6 +97,9 @@ function handleItemClick(event) {
   }
 }
 
+/**
+ * draw canvas from the active items
+ */
 function drawCanvas() {
   const layer0 = document.querySelector(".img-layer0");
   const layer1 = document.querySelector(".img-layer1");
@@ -114,6 +118,7 @@ function downloadCanvas() {
   if (window.navigator.msSaveBlob) {
     window.navigator.msSaveBlob(canvas.msToBlob(), "design.png");
   } else {
+    // rest of the browsers
     const a = document.createElement("a");
 
     document.body.appendChild(a);
@@ -127,13 +132,13 @@ function downloadCanvas() {
 /**
  * Callback function for clinking on new items btn
 //  */
-// function handleNewItemsBtnClick(e) {
-//   //clear each layer
-//   layers.forEach((layer) => {
-//     layer.innerHTML = "";
-//   });
-//   initialise();
-// }
+function handleNewItemsBtnClick(e) {
+  //clear each layer
+  layers.forEach((layer) => {
+    layer.innerHTML = "";
+  });
+  initialise();
+}
 
 layers.forEach((layer) => {
   layer.addEventListener("click", handleItemClick);
@@ -144,7 +149,7 @@ function saveDesign() {
   downloadCanvas();
 }
 
-// newItemsBtn.addEventListener("click", handleNewItemsBtnClick);
+newItemsBtn.addEventListener("click", handleNewItemsBtnClick);
 saveDesignBtn.addEventListener("click", saveDesign);
 
 async function initialise() {

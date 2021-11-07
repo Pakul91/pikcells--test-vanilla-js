@@ -3,6 +3,9 @@ import "./style.css";
 
 const layers = document.querySelectorAll(".layer-container");
 const newItemsBtn = document.querySelector(".new-items");
+const saveDesignBtn = document.querySelector(".save-design-btn");
+const canvas = document.querySelector("canvas");
+
 let items = "";
 
 /**
@@ -96,22 +99,38 @@ function handleItemClick(event) {
   }
 }
 
+function drawCanvas() {
+  const ctx = canvas.getContext("2d");
+
+  const layer0 = document.querySelector("img-layer0");
+  const layer1 = document.querySelector("img-layer1");
+  const layer2 = document.querySelector("img-layer2");
+
+  ctx.drawImage(layer0, 0, 0);
+}
+
 /**
  * Callback function for clinking on new items btn
- */
-function handleNewItemsBtnClick() {
-  //clear each layer
-  layers.forEach((layer) => {
-    layer.innerHTML = "";
-  });
-  initialise();
-}
+//  */
+// function handleNewItemsBtnClick(e) {
+//   //clear each layer
+//   layers.forEach((layer) => {
+//     layer.innerHTML = "";
+//   });
+//   initialise();
+// }
 
 layers.forEach((layer) => {
   layer.addEventListener("click", handleItemClick);
 });
 
-newItemsBtn.addEventListener("click", handleNewItemsBtnClick);
+function saveDesign(e) {
+  console.log(e.target);
+  document.createElement("canvas");
+}
+
+// newItemsBtn.addEventListener("click", handleNewItemsBtnClick);
+saveDesignBtn.addEventListener("click", saveDesign);
 
 async function initialise() {
   await fetchData();

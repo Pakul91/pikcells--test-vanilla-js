@@ -106,7 +106,8 @@ img {
 }
 
 /* 5) NEW DESIGNS TYLES */
-.new-items-btn {
+.new-items-btn,
+.save-design-btn {
   margin: 0 auto;
   width: 20%;
   font-weight: 900;

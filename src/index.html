@@ -4,26 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gluten:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
-    <title>Pikcell quick design</title>
+    <title>Pikcells quick design</title>
   </head>
   <body>
     <header>
-      <h1>Welcome to our quick design app!</h1>
-      <h2>
+      <nav>
+        <span class="logo">TiPi</span>
+        <div class="links">
+          <p>
+            <a href="#main">About</a>
+          </p>
+          <p>
+            <a href="#design">Design</a>
+          </p>
+          <p>
+            <a href="#contact">Contact</a>
+          </p>
+        </div>
+      </nav>
+      <h1>A place where your dream design will come through.</h1>
+      <p lassName="text">
         Our quick design app allows you to check some of the projects that our
         top designers prepared for you! You may find something you like, or it
         may inspire you to create your own custom made project of your dream
         kitchen!
-      </h2>
-    </header>
-    <main>
-      <h2>Take your kitchen desing into your own hands!</h2>
-      <p>
-        Each layer represents a different aspect of your kitchen. Play around
-        with the options presented to you to see what incredible design you can
-        create on your own!
       </p>
+    </header>
+    <main id="main">
+      <div class="discription">
+        <h2>Take your kitchen desing into your own hands!</h2>
+        <p class="text">
+          Each layer of our designing app represents a different aspect of your
+          kitchen. Play around with the options presented to you to see what
+          incredible design you can create on your own!
+        </p>
+      </div>
+
       <section class="design-selection-container">
         <div class="layer-container" data-layer="0">
           <h3>Layer 1</h3>
@@ -36,7 +57,7 @@
         </div>
       </section>
 
-      <section class="desigin-display-container">
+      <section id="design" class="desigin-display-container">
         <div class="img-container">
           <img
             class="img img-layer0"
@@ -78,5 +99,12 @@
         </div>
       </section>
     </main>
+    <footer id="contact">
+      <h3>Have any questiones or want to share ideas?</h3>
+      <div class="contacts">
+        <p>Email: example-email@.fakePortal.com</p>
+        <p>Tel: xxxx-xxx-xxx</p>
+      </div>
+    </footer>
   </body>
 </html>

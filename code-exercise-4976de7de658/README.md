@@ -4,9 +4,9 @@
 
 A Pikcells code test for job applicants to demonstrate their ability to construct a dynamic client side interface built using Javascript. Any code snippets used should reference original source in comments. Original code is absolutely preferred.
 
-We are specifically interested in the way you handle, load, manage and filter data. UI design is *not* a priority.
+We are specifically interested in the way you handle, load, manage and filter data. UI design is _not_ a priority.
 
-You can use any flavour of JS you wish and at a *minimum* it must run in the browser it was developed with. Any possible compatibility issues should be noted in the comments, full cross browser testing is *not* a requirement.
+You can use any flavour of JS you wish and at a _minimum_ it must run in the browser it was developed with. Any possible compatibility issues should be noted in the comments, full cross browser testing is _not_ a requirement.
 
 ## What should it do?
 
@@ -16,7 +16,6 @@ We want the site visitor to flex their design and creativity skills and create a
 2. The items in the menu should be ordered according to the "order" value in the items array
 3. It should initialise showing a pre-determined default configuration which is in the json file
 4. The user should be able to save their configured image to their computer somehow and the client doesn't want to pay for another server to merge the images :(
-
 
 ## How should it do it?
 
@@ -128,18 +127,18 @@ Layer 2
 
 Only one image/item per layer should be selectable and a visual cue should highlight the currently selected item. The images are transparent and should be layered up by some means. The order of layering can be determined by the "layers" -> "order" property.
 
-
 ## Special Notes
 
 The json file will randomise the number of options, names and order on every fetch.
 
 Both the images and JSON file have CORS access control headers set to all (\*) origins.
 
-The folders /exercise-src/data and /exercise-src/images are included *only* for reference purposes, your code should load the images and json file from our lab.pikcells.com server.
+The folders /exercise-src/data and /exercise-src/images are included _only_ for reference purposes, your code should load the images and json file from our lab.pikcells.com server.
 
 ## Code submission
 
 Please either
+
 - compress your work into a single file and send a download link (Google Drive, dropbox, wetransfer etc) to pete@pikcells.com
 - send us a link to a repository of your choosing.
 

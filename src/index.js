@@ -15,10 +15,12 @@ let items = "";
 function populateLayers(state) {
   if (Object.keys(state).length === 0) return;
 
+  //array indicating which item should be initialy active in each layer
   const defConfig = state.default_configuration;
 
   //take each layer and create markup for every item in it.
   layers.forEach((layer) => {
+    //indicates which layer we ate currently on
     const layerNr = layer.dataset.layer;
 
     const markup = state.layers[layerNr].items
@@ -61,7 +63,7 @@ function assignImgSrc(layer, src) {
 }
 
 /**
- * assign img src to each layer img from coresponding active layer items
+ * assign src attribute to appropriate imgage from active items
  */
 function assignImgSrcOnLoad() {
   if (!items) return;
@@ -73,9 +75,8 @@ function assignImgSrcOnLoad() {
 }
 
 /**
- * Callback function for clicking on each item in each Layer
+ * Callback function for clicking on each item
  * @param {{}} event
- * @returns
  */
 function handleItemClick(event) {
   const clicked = event.target.closest(".item");
@@ -106,13 +107,18 @@ function drawCanvas() {
   const layer2 = document.querySelector(".img-layer2");
 
   const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  console.log(layer0.clientHeight);
   ctx.drawImage(layer0, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(layer1, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(layer2, 0, 0, canvas.width, canvas.height);
 }
 
+/**
+ * download canvas to user desktop
+ * I've used method from this youtube clip
+ * https://www.youtube.com/watch?v=YoVJWZrS2WU
+ */
 function downloadCanvas() {
   //IE/Edge Support (PNG only)
   if (window.navigator.msSaveBlob) {
@@ -129,9 +135,6 @@ function downloadCanvas() {
   }
 }
 
-/**
- * Callback function for clinking on new items btn
-//  */
 function handleNewItemsBtnClick(e) {
   //clear each layer
   layers.forEach((layer) => {
@@ -144,13 +147,13 @@ layers.forEach((layer) => {
   layer.addEventListener("click", handleItemClick);
 });
 
-function saveDesign() {
+function handleSaveDesignBtnClick() {
   drawCanvas();
   downloadCanvas();
 }
 
 newItemsBtn.addEventListener("click", handleNewItemsBtnClick);
-saveDesignBtn.addEventListener("click", saveDesign);
+saveDesignBtn.addEventListener("click", handleSaveDesignBtnClick);
 
 async function initialise() {
   await fetchData();

@@ -51,5 +51,3 @@ function sortData(input) {
 
   return data;
 }
-
-fetchData();

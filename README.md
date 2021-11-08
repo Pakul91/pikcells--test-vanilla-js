@@ -17,6 +17,10 @@ App allow users to create kitchen design from pre-loaded template layers and sa
 
 ## Setup
 
+### Instalation
+
+Run NPM Install to install all dependencies 
+
 
 ### Available Scripts
 
